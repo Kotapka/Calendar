@@ -8,6 +8,7 @@ import com.example.inz.customer.operation.dto.LoginDto;
 import com.example.inz.customer.operation.dto.SignUpDto;
 import com.example.inz.customer.operation.exception.InvalidDataException;
 import com.example.inz.operations.MD5;
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -47,5 +48,12 @@ public class CustomerController {
         customer.setToken(userAuthenticationProvider.createToken(customer.getLogin()));
 
         return ResponseEntity.created(URI.create("/users/" + customer.getId())).body(customer);
+    }
+
+    @GetMapping("/cleanup")
+    @Hidden
+    ResponseEntity<String> cleanup() {
+        customerOperationFacade.cleanup();
+        return ResponseEntity.ok("customer cleanup");
     }
 }

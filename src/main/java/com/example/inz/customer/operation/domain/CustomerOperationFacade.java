@@ -53,4 +53,8 @@ public class CustomerOperationFacade {
         return customerMapper.toCustomerDto(savedCustomer);
     }
 
+    public void cleanup() {
+        customerRepository.deleteAll();
+    }
+
 }

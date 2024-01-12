@@ -30,6 +30,8 @@ function LoginPage() {
         Cookies.set('Login',login)
         console.log('About to navigate');
         navigate('/PlannerPage');
+        console.log('Navaigate done');
+        navigate('/PlannerPage');
       }
     } catch (error) {
       console.error('Error:', error.message);

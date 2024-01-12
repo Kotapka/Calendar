@@ -84,6 +84,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
         console.error('Server error:', errorData);
         setError('Something went wrong');
       } else {
+        window.location.reload()
         onClose();
       }
     } catch (error) {
